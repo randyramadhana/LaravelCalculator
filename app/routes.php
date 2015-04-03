@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', ['
+	as' => 'blank', 'uses' => 'NumberController@blank'
+]);
+
+Route::get('/{output}/calc/{num}', ['
+	as' => 'calc', 'uses' => 'NumberController@calc'
+]);
+
+Route::get('/{output}/op/{operator}', [
+	'as' => 'op', 'uses' => 'NumberController@operate'
+]);
