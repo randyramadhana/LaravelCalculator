@@ -66,6 +66,12 @@
 		<form action="<?php echo $link.'op/-'; ?>">
 			<input type="submit" value="-">
 		</form>
+		<form action="<?php echo $link.'op/^'; ?>">
+			<input type="submit" value="^">
+		</form>
+		<form action="<?php echo $link.'op/sqrt'; ?>">
+			<input type="submit" value="sqrt">
+		</form>
 	</div>
 	<div class="input-clear">
 		<form action="<?php echo Request::root(); ?>">

@@ -22,6 +22,8 @@ class NumberController extends Controller {
 					case '-':
 						$num = $output - $num;
 						break;
+					case '^':
+						$num = pow($output,$num);
 				}
 				Session::put('operator', NULL);
 			} else {
@@ -35,7 +37,12 @@ class NumberController extends Controller {
 		if ($output == 'init') {
 			return View::make('hello');
 		}
-		Session::put('operator', $operator);
+		if ($operator == 'sqrt') {
+			$output = sqrt($output);
+			$operator = NULL;
+		} else {
+			Session::put('operator', $operator);
+		}
 		return View::make('hello', array('output' => $output, 'operator' => $operator));
 	}
 }
